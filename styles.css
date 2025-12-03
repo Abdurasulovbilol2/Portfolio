@@ -407,7 +407,7 @@ section {
     color: #ff6f00;
 }
 
-/* API & Backend Category */
+/* API Testing Category */
 .skill-category:nth-child(4) {
     border-left: 4px solid #9c27b0; /* Purple */
 }
@@ -416,7 +416,7 @@ section {
     color: #9c27b0;
 }
 
-/* Tools & DevOps Category */
+/* Development Tools Category */
 .skill-category:nth-child(5) {
     border-left: 4px solid #f44336; /* Red */
 }
@@ -425,7 +425,7 @@ section {
     color: #f44336;
 }
 
-/* Databases & Testing Category */
+/* Testing & QA Tools Category */
 .skill-category:nth-child(6) {
     border-left: 4px solid #00bcd4; /* Cyan */
 }
@@ -898,11 +898,4 @@ section {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
-} 
- / *   P u l s e   a n i m a t i o n   f o r   c l i c k   e f f e c t   * /  
- @ k e y f r a m e s   p u l s e   {  
-         0 %   {   t r a n s f o r m :   t r a n s l a t e X ( 8 p x )   s c a l e ( 1 ) ;   b o x - s h a d o w :   0   8 p x   2 5 p x   r g b a ( 4 4 ,   9 0 ,   1 6 0 ,   0 . 3 ) ;   }  
-         5 0 %   {   t r a n s f o r m :   t r a n s l a t e X ( 8 p x )   s c a l e ( 1 . 1 ) ;   b o x - s h a d o w :   0   1 2 p x   3 5 p x   r g b a ( 4 4 ,   9 0 ,   1 6 0 ,   0 . 5 ) ;   }  
-         1 0 0 %   {   t r a n s f o r m :   t r a n s l a t e X ( 8 p x )   s c a l e ( 1 ) ;   b o x - s h a d o w :   0   8 p x   2 5 p x   r g b a ( 4 4 ,   9 0 ,   1 6 0 ,   0 . 3 ) ;   }  
- }  
- 
+}
