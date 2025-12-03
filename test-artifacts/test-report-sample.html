@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Execution Report - Sprint 12</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .test-document {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .document-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #28a745;
+        }
+        .document-title {
+            color: #28a745;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .report-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .summary-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .summary-card.pass {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+        .summary-card.fail {
+            background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+        }
+        .summary-card.skip {
+            background: linear-gradient(135deg, #6c757d 0%, #adb5bd 100%);
+        }
+        .summary-card.coverage {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        }
+        .summary-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .summary-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .chart-container {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 1rem 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: width 0.3s ease;
+        }
+        .test-results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-results-table th {
+            background-color: #28a745;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .test-results-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .test-results-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .test-results-table tr:hover {
+            background-color: #e3f2fd;
+        }
+        .status-pass {
+            background-color: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .status-fail {
+            background-color: #dc3545;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .status-skip {
+            background-color: #6c757d;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .section-heading {
+            color: #28a745;
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #495057;
+        }
+        .environment-info {
+            background-color: #e9ecef;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .defect-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .defect-card {
+            background: white;
+            border-left: 4px solid #dc3545;
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .defect-card.critical {
+            border-left-color: #dc3545;
+        }
+        .defect-card.high {
+            border-left-color: #fd7e14;
+        }
+        .defect-card.medium {
+            border-left-color: #ffc107;
+        }
+        .defect-card.low {
+            border-left-color: #28a745;
+        }
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .metric-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid #007bff;
+        }
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #007bff;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-document">
+        <a href="../index.html" class="back-button">&larr; Back to Portfolio</a>
+        
+        <div class="document-header">
+            <h1 class="document-title">Test Execution Report</h1>
+            <h2>Sprint 12 - E-Commerce Application Testing</h2>
+            <p><strong>Reporting Period:</strong> December 16 - December 20, 2024</p>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="report-summary">
+            <div class="summary-card">
+                <div class="summary-number">247</div>
+                <div class="summary-label">Total Test Cases</div>
+            </div>
+            <div class="summary-card pass">
+                <div class="summary-number">229</div>
+                <div class="summary-label">Passed</div>
+            </div>
+            <div class="summary-card fail">
+                <div class="summary-number">12</div>
+                <div class="summary-label">Failed</div>
+            </div>
+            <div class="summary-card skip">
+                <div class="summary-number">6</div>
+                <div class="summary-label">Skipped</div>
+            </div>
+            <div class="summary-card coverage">
+                <div class="summary-number">92.7%</div>
+                <div class="summary-label">Pass Rate</div>
+            </div>
+        </div>
+
+        <!-- Overall Progress -->
+        <div class="chart-container">
+            <h3>Test Execution Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 92.7%;">92.7% Passed</div>
+            </div>
+            <p><strong>Status:</strong> Sprint testing completed successfully with high pass rate</p>
+        </div>
+
+        <!-- Test Environment -->
+        <h2 class="section-heading">Test Environment</h2>
+        <div class="environment-info">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <div>
+                    <strong>Environment:</strong> Staging<br>
+                    <strong>URL:</strong> https://staging.shopeasy.com<br>
+                    <strong>Build Version:</strong> v2.1.4<br>
+                    <strong>Database:</strong> MySQL 8.0.33
+                </div>
+                <div>
+                    <strong>Test Period:</strong> Dec 16-20, 2024<br>
+                    <strong>Total Execution Time:</strong> 38 hours<br>
+                    <strong>Automation Rate:</strong> 78%<br>
+                    <strong>Manual Tests:</strong> 22%
+                </div>
+                <div>
+                    <strong>Browsers Tested:</strong><br>
+                    • Chrome 119.0.6045.105<br>
+                    • Firefox 120.0<br>
+                    • Safari 17.1<br>
+                    • Edge 119.0.2151.58
+                </div>
+                <div>
+                    <strong>Devices:</strong><br>
+                    • Desktop (Windows, macOS)<br>
+                    • Mobile (iOS, Android)<br>
+                    • Tablet (iPad, Samsung)<br>
+                    • Various screen sizes
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Results by Module -->
+        <h2 class="section-heading">Test Results by Module</h2>
+        <table class="test-results-table">
+            <thead>
+                <tr>
+                    <th>Module</th>
+                    <th>Total Tests</th>
+                    <th>Passed</th>
+                    <th>Failed</th>
+                    <th>Skipped</th>
+                    <th>Pass Rate</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>User Authentication</strong></td>
+                    <td>45</td>
+                    <td>42</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>93.3%</td>
+                    <td><span class="status-pass">PASS</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Product Catalog</strong></td>
+                    <td>38</td>
+                    <td>36</td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>94.7%</td>
+                    <td><span class="status-pass">PASS</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Shopping Cart</strong></td>
+                    <td>32</td>
+                    <td>29</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>90.6%</td>
+                    <td><span class="status-pass">PASS</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Checkout Process</strong></td>
+                    <td>28</td>
+                    <td>25</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>89.3%</td>
+                    <td><span class="status-fail">FAIL</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Payment Processing</strong></td>
+                    <td>25</td>
+                    <td>23</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>92.0%</td>
+                    <td><span class="status-pass">PASS</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Order Management</strong></td>
+                    <td>31</td>
+                    <td>30</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>96.8%</td>
+                    <td><span class="status-pass">PASS</span></td>
+                </tr>
+                <tr>
+                    <td><strong>User Profile</strong></td>
+                    <td>22</td>
+                    <td>21</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>95.5%</td>
+                    <td><span class="status-pass">PASS</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Search & Filters</strong></td>
+                    <td>26</td>
+                    <td>23</td>
+                    <td>0</td>
+                    <td>3</td>
+                    <td>88.5%</td>
+                    <td><span class="status-pass">PASS</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Defect Summary -->
+        <h2 class="section-heading">Defect Analysis</h2>
+        <div class="defect-summary">
+            <div class="defect-card critical">
+                <h4>Critical Issues</h4>
+                <div style="font-size: 2rem; font-weight: bold; color: #dc3545;">2</div>
+                <p>Issues that block core functionality</p>
+                <ul>
+                    <li>Login failure with valid credentials</li>
+                    <li>Payment processing timeout</li>
+                </ul>
+            </div>
+            <div class="defect-card high">
+                <h4>High Priority</h4>
+                <div style="font-size: 2rem; font-weight: bold; color: #fd7e14;">5</div>
+                <p>Important issues affecting user experience</p>
+                <ul>
+                    <li>Cart count display issue</li>
+                    <li>Search results pagination</li>
+                    <li>Product image loading delays</li>
+                </ul>
+            </div>
+            <div class="defect-card medium">
+                <h4>Medium Priority</h4>
+                <div style="font-size: 2rem; font-weight: bold; color: #ffc107;">4</div>
+                <p>Minor functionality issues</p>
+                <ul>
+                    <li>Form validation messages</li>
+                    <li>UI alignment issues</li>
+                    <li>Email notification delays</li>
+                </ul>
+            </div>
+            <div class="defect-card low">
+                <h4>Low Priority</h4>
+                <div style="font-size: 2rem; font-weight: bold; color: #28a745;">1</div>
+                <p>Cosmetic or minor issues</p>
+                <ul>
+                    <li>Footer link styling</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Performance Metrics -->
+        <h2 class="section-heading">Performance Metrics</h2>
+        <div class="performance-metrics">
+            <div class="metric-card">
+                <h4>Page Load Time</h4>
+                <div class="metric-value">2.3s</div>
+                <p>Average across all pages (Target: < 3s)</p>
+                <div style="color: #28a745; font-weight: bold;">✓ Within acceptable range</div>
+            </div>
+            <div class="metric-card">
+                <h4>API Response Time</h4>
+                <div class="metric-value">145ms</div>
+                <p>Average API response time (Target: < 200ms)</p>
+                <div style="color: #28a745; font-weight: bold;">✓ Excellent performance</div>
+            </div>
+            <div class="metric-card">
+                <h4>Concurrent Users</h4>
+                <div class="metric-value">500</div>
+                <p>Maximum tested without degradation</p>
+                <div style="color: #28a745; font-weight: bold;">✓ Meets requirements</div>
+            </div>
+            <div class="metric-card">
+                <h4>Error Rate</h4>
+                <div class="metric-value">0.2%</div>
+                <p>System error rate during testing</p>
+                <div style="color: #28a745; font-weight: bold;">✓ Below 1% threshold</div>
+            </div>
+        </div>
+
+        <!-- Test Coverage Analysis -->
+        <h2 class="section-heading">Coverage Analysis</h2>
+        <table class="test-results-table">
+            <thead>
+                <tr>
+                    <th>Coverage Type</th>
+                    <th>Percentage</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Functional Coverage</strong></td>
+                    <td>95.2%</td>
+                    <td><span class="status-pass">EXCELLENT</span></td>
+                    <td>All critical user journeys covered</td>
+                </tr>
+                <tr>
+                    <td><strong>Regression Coverage</strong></td>
+                    <td>88.7%</td>
+                    <td><span class="status-pass">GOOD</span></td>
+                    <td>Automated regression suite executed</td>
+                </tr>
+                <tr>
+                    <td><strong>Browser Coverage</strong></td>
+                    <td>92.0%</td>
+                    <td><span class="status-pass">EXCELLENT</span></td>
+                    <td>All major browsers and versions tested</td>
+                </tr>
+                <tr>
+                    <td><strong>Device Coverage</strong></td>
+                    <td>85.5%</td>
+                    <td><span class="status-pass">GOOD</span></td>
+                    <td>Desktop, mobile, and tablet coverage</td>
+                </tr>
+                <tr>
+                    <td><strong>API Coverage</strong></td>
+                    <td>98.1%</td>
+                    <td><span class="status-pass">EXCELLENT</span></td>
+                    <td>Comprehensive API endpoint testing</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Risk Assessment -->
+        <h2 class="section-heading">Risk Assessment & Recommendations</h2>
+        <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+            <h4 style="color: #856404;">High Risk Areas:</h4>
+            <ul>
+                <li><strong>Authentication Module:</strong> Critical login issues need immediate attention before production release</li>
+                <li><strong>Checkout Process:</strong> Payment flow instability could impact revenue</li>
+                <li><strong>Performance:</strong> Monitor page load times under high traffic conditions</li>
+            </ul>
+        </div>
+
+        <div style="background-color: #d1ecf1; border: 1px solid #bee5eb; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+            <h4 style="color: #0c5460;">Recommendations:</h4>
+            <ul>
+                <li>Prioritize fixing critical and high-priority defects before release</li>
+                <li>Increase test coverage for mobile devices to reach 90%+</li>
+                <li>Implement additional load testing for checkout process</li>
+                <li>Schedule focused regression testing after defect fixes</li>
+                <li>Consider additional security testing for payment module</li>
+            </ul>
+        </div>
+
+        <!-- Team Performance -->
+        <h2 class="section-heading">Team Performance</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+                <h4>Test Execution</h4>
+                <p><strong>Planned:</strong> 247 test cases</p>
+                <p><strong>Executed:</strong> 241 test cases (97.6%)</p>
+                <p><strong>Automation:</strong> 192 test cases (78%)</p>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+                <h4>Defect Detection</h4>
+                <p><strong>Total Defects:</strong> 12</p>
+                <p><strong>Detection Rate:</strong> 4.9%</p>
+                <p><strong>Avg. Time to Report:</strong> 2.3 hours</p>
+            </div>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+                <h4>Schedule Adherence</h4>
+                <p><strong>Planned Duration:</strong> 5 days</p>
+                <p><strong>Actual Duration:</strong> 5 days</p>
+                <p><strong>On-time Delivery:</strong> 100%</p>
+            </div>
+        </div>
+
+        <!-- Sign-off -->
+        <div style="margin-top: 3rem; padding: 2rem; background-color: #e3f2fd; border-radius: 8px;">
+            <h3 style="color: #1976d2; margin-bottom: 1rem;">Test Sign-off Status</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div>
+                    <strong>Prepared by:</strong><br>
+                    Sarah Johnson, Lead QA Engineer<br>
+                    Date: December 20, 2024
+                </div>
+                <div>
+                    <strong>Reviewed by:</strong><br>
+                    Mike Davis, QA Manager<br>
+                    Date: December 21, 2024
+                </div>
+                <div>
+                    <strong>Approved by:</strong><br>
+                    Lisa Chen, Project Manager<br>
+                    Date: December 21, 2024
+                </div>
+            </div>
+            <div style="margin-top: 1rem; padding: 1rem; background: white; border-radius: 5px;">
+                <strong>Recommendation:</strong> <span style="color: #dc3545;">Do not proceed to production</span> until critical defects are resolved. Estimated time for fixes: 2-3 days.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

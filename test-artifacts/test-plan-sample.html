@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Plan Sample - E-Commerce Application</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .test-document {
+            max-width: 1000px;
+            margin: 100px auto 0;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .document-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #2c5aa0;
+        }
+        .document-title {
+            color: #2c5aa0;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .document-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .info-item {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #2c5aa0;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .section-heading {
+            color: #2c5aa0;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .test-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .test-table th,
+        .test-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .test-table th {
+            background-color: #2c5aa0;
+            color: white;
+        }
+        .test-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .priority-high { color: #dc3545; font-weight: bold; }
+        .priority-medium { color: #fd7e14; font-weight: bold; }
+        .priority-low { color: #198754; font-weight: bold; }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-document">
+        <a href="../index.html" class="back-button">&larr; Back to Portfolio</a>
+        
+        <div class="document-header">
+            <h1 class="document-title">Test Plan</h1>
+            <h2>E-Commerce Web Application</h2>
+        </div>
+
+        <div class="document-info">
+            <div class="info-item">
+                <div class="info-label">Document Version:</div>
+                <div>1.2</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Created By:</div>
+                <div>QA Team Lead</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Creation Date:</div>
+                <div>December 1, 2024</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Last Updated:</div>
+                <div>December 15, 2024</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Project:</div>
+                <div>ShopEasy v2.0</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Test Phase:</div>
+                <div>System Testing</div>
+            </div>
+        </div>
+
+        <h3 class="section-heading">1. Introduction</h3>
+        <p>This test plan outlines the testing strategy, scope, approach, and schedule for the E-Commerce Web Application (ShopEasy v2.0). The purpose is to ensure the application meets all functional and non-functional requirements before production release.</p>
+
+        <h3 class="section-heading">2. Test Objectives</h3>
+        <ul>
+            <li>Verify all functional requirements are implemented correctly</li>
+            <li>Ensure system performance meets specified criteria</li>
+            <li>Validate security measures and data protection</li>
+            <li>Confirm cross-browser and cross-device compatibility</li>
+            <li>Test integration with third-party payment systems</li>
+            <li>Verify data integrity and backup/recovery procedures</li>
+        </ul>
+
+        <h3 class="section-heading">3. Test Scope</h3>
+        
+        <h4>3.1 Features to be Tested</h4>
+        <ul>
+            <li>User Registration and Authentication</li>
+            <li>Product Catalog Management</li>
+            <li>Shopping Cart Functionality</li>
+            <li>Checkout Process</li>
+            <li>Payment Processing</li>
+            <li>Order Management</li>
+            <li>User Profile Management</li>
+            <li>Search and Filter Functionality</li>
+            <li>Admin Dashboard</li>
+            <li>Inventory Management</li>
+        </ul>
+
+        <h4>3.2 Features NOT to be Tested</h4>
+        <ul>
+            <li>Third-party payment gateway internals</li>
+            <li>Email service provider functionality</li>
+            <li>Operating system level features</li>
+            <li>Network infrastructure components</li>
+        </ul>
+
+        <h3 class="section-heading">4. Test Approach</h3>
+        
+        <table class="test-table">
+            <thead>
+                <tr>
+                    <th>Test Level</th>
+                    <th>Test Type</th>
+                    <th>Tools/Framework</th>
+                    <th>Responsibility</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Unit Testing</td>
+                    <td>White Box</td>
+                    <td>JUnit, Jest</td>
+                    <td>Development Team</td>
+                </tr>
+                <tr>
+                    <td>Integration Testing</td>
+                    <td>Black Box</td>
+                    <td>Postman, REST Assured</td>
+                    <td>QA Team</td>
+                </tr>
+                <tr>
+                    <td>System Testing</td>
+                    <td>Black Box</td>
+                    <td>Selenium, Manual Testing</td>
+                    <td>QA Team</td>
+                </tr>
+                <tr>
+                    <td>Performance Testing</td>
+                    <td>Load/Stress</td>
+                    <td>JMeter, LoadRunner</td>
+                    <td>Performance Team</td>
+                </tr>
+                <tr>
+                    <td>Security Testing</td>
+                    <td>Vulnerability</td>
+                    <td>OWASP ZAP, Burp Suite</td>
+                    <td>Security Team</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="section-heading">5. Test Environment</h3>
+        
+        <h4>5.1 Hardware Requirements</h4>
+        <ul>
+            <li>Test Server: 16GB RAM, 8-core CPU, 500GB SSD</li>
+            <li>Database Server: 32GB RAM, 12-core CPU, 1TB SSD</li>
+            <li>Load Testing Machines: 8GB RAM each (minimum 5 machines)</li>
+        </ul>
+
+        <h4>5.2 Software Requirements</h4>
+        <ul>
+            <li>Operating System: Ubuntu 20.04 LTS, Windows 10</li>
+            <li>Web Servers: Apache 2.4, Nginx 1.18</li>
+            <li>Database: MySQL 8.0, Redis 6.2</li>
+            <li>Browsers: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+</li>
+        </ul>
+
+        <h3 class="section-heading">6. Test Schedule</h3>
+        
+        <table class="test-table">
+            <thead>
+                <tr>
+                    <th>Phase</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Duration</th>
+                    <th>Milestone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Test Planning</td>
+                    <td>Dec 1, 2024</td>
+                    <td>Dec 5, 2024</td>
+                    <td>5 days</td>
+                    <td>Test Plan Approval</td>
+                </tr>
+                <tr>
+                    <td>Test Case Design</td>
+                    <td>Dec 6, 2024</td>
+                    <td>Dec 12, 2024</td>
+                    <td>7 days</td>
+                    <td>Test Cases Review</td>
+                </tr>
+                <tr>
+                    <td>Test Environment Setup</td>
+                    <td>Dec 10, 2024</td>
+                    <td>Dec 15, 2024</td>
+                    <td>6 days</td>
+                    <td>Environment Ready</td>
+                </tr>
+                <tr>
+                    <td>Test Execution</td>
+                    <td>Dec 16, 2024</td>
+                    <td>Jan 10, 2025</td>
+                    <td>25 days</td>
+                    <td>Testing Complete</td>
+                </tr>
+                <tr>
+                    <td>Test Closure</td>
+                    <td>Jan 11, 2025</td>
+                    <td>Jan 15, 2025</td>
+                    <td>5 days</td>
+                    <td>Test Report</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="section-heading">7. Risk Assessment</h3>
+        
+        <table class="test-table">
+            <thead>
+                <tr>
+                    <th>Risk</th>
+                    <th>Probability</th>
+                    <th>Impact</th>
+                    <th>Mitigation Strategy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Delayed delivery of test environment</td>
+                    <td class="priority-medium">Medium</td>
+                    <td class="priority-high">High</td>
+                    <td>Early coordination with DevOps team, backup environment plan</td>
+                </tr>
+                <tr>
+                    <td>Incomplete requirements</td>
+                    <td class="priority-low">Low</td>
+                    <td class="priority-high">High</td>
+                    <td>Regular stakeholder reviews, requirement clarification sessions</td>
+                </tr>
+                <tr>
+                    <td>Resource unavailability</td>
+                    <td class="priority-medium">Medium</td>
+                    <td class="priority-medium">Medium</td>
+                    <td>Cross-training team members, external resource backup</td>
+                </tr>
+                <tr>
+                    <td>Third-party integration issues</td>
+                    <td class="priority-high">High</td>
+                    <td class="priority-medium">Medium</td>
+                    <td>Early integration testing, sandbox environment testing</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="section-heading">8. Entry and Exit Criteria</h3>
+        
+        <h4>8.1 Entry Criteria</h4>
+        <ul>
+            <li>Development code freeze for the build</li>
+            <li>Test environment setup completed</li>
+            <li>Test data preparation completed</li>
+            <li>All test cases reviewed and approved</li>
+            <li>Defect tracking system configured</li>
+        </ul>
+
+        <h4>8.2 Exit Criteria</h4>
+        <ul>
+            <li>All planned test cases executed</li>
+            <li>95% test case pass rate achieved</li>
+            <li>No critical or high priority defects remaining</li>
+            <li>Performance benchmarks met</li>
+            <li>Security testing completed with no major vulnerabilities</li>
+            <li>Test execution report reviewed and approved</li>
+        </ul>
+
+        <h3 class="section-heading">9. Deliverables</h3>
+        <ul>
+            <li>Test Plan Document</li>
+            <li>Test Case Specifications</li>
+            <li>Test Execution Reports</li>
+            <li>Defect Reports</li>
+            <li>Performance Test Results</li>
+            <li>Security Assessment Report</li>
+            <li>Test Closure Report</li>
+        </ul>
+
+        <h3 class="section-heading">10. Team Responsibilities</h3>
+        
+        <table class="test-table">
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Responsibilities</th>
+                    <th>Team Member</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Test Manager</td>
+                    <td>Test planning, resource allocation, reporting</td>
+                    <td>John Smith</td>
+                </tr>
+                <tr>
+                    <td>Lead QA Engineer</td>
+                    <td>Test design, execution oversight, automation</td>
+                    <td>Sarah Johnson</td>
+                </tr>
+                <tr>
+                    <td>QA Engineers</td>
+                    <td>Test case execution, defect reporting</td>
+                    <td>Mike Davis, Lisa Chen</td>
+                </tr>
+                <tr>
+                    <td>Performance Tester</td>
+                    <td>Load testing, performance analysis</td>
+                    <td>Alex Rodriguez</td>
+                </tr>
+                <tr>
+                    <td>Security Tester</td>
+                    <td>Security testing, vulnerability assessment</td>
+                    <td>Emma Wilson</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="section-heading">11. Approval</h3>
+        <p><strong>Document prepared by:</strong> QA Team Lead<br>
+        <strong>Reviewed by:</strong> Project Manager, Development Lead<br>
+        <strong>Approved by:</strong> Test Manager, Product Owner<br>
+        <strong>Date:</strong> December 15, 2024</p>
+    </div>
+</body>
+</html>

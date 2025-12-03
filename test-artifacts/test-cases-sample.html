@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cases Sample - User Registration Module</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .test-document {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .document-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #2c5aa0;
+        }
+        .document-title {
+            color: #2c5aa0;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .document-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .info-item {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #2c5aa0;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .test-case {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        .test-case-header {
+            background-color: #2c5aa0;
+            color: white;
+            padding: 1rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .test-case-body {
+            padding: 1.5rem;
+        }
+        .test-case-section {
+            margin-bottom: 1rem;
+        }
+        .test-case-label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .test-steps {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+        .test-steps th,
+        .test-steps td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .test-steps th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        .test-steps tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .priority-high { 
+            background-color: #dc3545;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        .priority-medium { 
+            background-color: #fd7e14;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        .priority-low { 
+            background-color: #198754;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #495057;
+        }
+        .test-type {
+            background-color: #0dcaf0;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        .test-case-id {
+            font-family: monospace;
+            background-color: rgba(255,255,255,0.2);
+            padding: 3px 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-document">
+        <a href="../index.html" class="back-button">&larr; Back to Portfolio</a>
+        
+        <div class="document-header">
+            <h1 class="document-title">Test Cases</h1>
+            <h2>User Registration Module</h2>
+        </div>
+
+        <div class="document-info">
+            <div class="info-item">
+                <div class="info-label">Module:</div>
+                <div>User Registration</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Feature:</div>
+                <div>Account Creation</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Created By:</div>
+                <div>QA Engineer</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Creation Date:</div>
+                <div>December 10, 2024</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Total Test Cases:</div>
+                <div>12</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Review Status:</div>
+                <div>Approved</div>
+            </div>
+        </div>
+
+        <!-- Test Case 1 -->
+        <div class="test-case">
+            <div class="test-case-header">
+                <span>
+                    <span class="test-case-id">TC_REG_001</span> - Valid User Registration
+                </span>
+                <span class="priority-high">High Priority</span>
+            </div>
+            <div class="test-case-body">
+                <div class="test-case-section">
+                    <span class="test-case-label">Objective:</span>
+                    <div>Verify that a user can successfully register with valid credentials</div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Prerequisites:</span>
+                    <div>
+                        <ul>
+                            <li>Application is accessible</li>
+                            <li>Registration page is loaded</li>
+                            <li>Database is running and accessible</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Test Data:</span>
+                    <div>
+                        <ul>
+                            <li>First Name: John</li>
+                            <li>Last Name: Doe</li>
+                            <li>Email: john.doe@example.com</li>
+                            <li>Password: SecurePass123!</li>
+                            <li>Confirm Password: SecurePass123!</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Test Steps:</span>
+                    <table class="test-steps">
+                        <thead>
+                            <tr>
+                                <th width="60">Step</th>
+                                <th>Action</th>
+                                <th>Expected Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Navigate to the registration page</td>
+                                <td>Registration form is displayed with all required fields</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Enter valid first name "John"</td>
+                                <td>First name field accepts the input</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Enter valid last name "Doe"</td>
+                                <td>Last name field accepts the input</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Enter valid email "john.doe@example.com"</td>
+                                <td>Email field accepts the input and validates format</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Enter valid password "SecurePass123!"</td>
+                                <td>Password field accepts input and shows strength indicator</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Enter matching password in confirm field</td>
+                                <td>Confirm password field accepts input</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Accept terms and conditions</td>
+                                <td>Checkbox is checked successfully</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Click "Register" button</td>
+                                <td>User account is created, success message displayed, user redirected to dashboard</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Case 2 -->
+        <div class="test-case">
+            <div class="test-case-header">
+                <span>
+                    <span class="test-case-id">TC_REG_002</span> - Invalid Email Format
+                </span>
+                <span class="priority-high">High Priority</span>
+            </div>
+            <div class="test-case-body">
+                <div class="test-case-section">
+                    <span class="test-case-label">Objective:</span>
+                    <div>Verify that registration fails with invalid email format</div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Test Data:</span>
+                    <div>
+                        <ul>
+                            <li>Email: invalid-email-format</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Test Steps:</span>
+                    <table class="test-steps">
+                        <thead>
+                            <tr>
+                                <th width="60">Step</th>
+                                <th>Action</th>
+                                <th>Expected Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Navigate to registration page</td>
+                                <td>Registration form is displayed</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Fill all fields with valid data except email</td>
+                                <td>All fields accept valid input</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Enter invalid email "invalid-email-format"</td>
+                                <td>Email field accepts the input</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Click "Register" button</td>
+                                <td>Error message "Please enter a valid email address" is displayed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Case 3 -->
+        <div class="test-case">
+            <div class="test-case-header">
+                <span>
+                    <span class="test-case-id">TC_REG_003</span> - Duplicate Email Registration
+                </span>
+                <span class="priority-high">High Priority</span>
+            </div>
+            <div class="test-case-body">
+                <div class="test-case-section">
+                    <span class="test-case-label">Objective:</span>
+                    <div>Verify that registration fails when using an already registered email</div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Prerequisites:</span>
+                    <div>
+                        <ul>
+                            <li>User with email "existing@example.com" already exists in database</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Test Data:</span>
+                    <div>
+                        <ul>
+                            <li>Email: existing@example.com</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Test Steps:</span>
+                    <table class="test-steps">
+                        <thead>
+                            <tr>
+                                <th width="60">Step</th>
+                                <th>Action</th>
+                                <th>Expected Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Navigate to registration page</td>
+                                <td>Registration form is displayed</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Fill all fields with valid data</td>
+                                <td>All fields accept input</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Enter existing email "existing@example.com"</td>
+                                <td>Email field accepts the input</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Click "Register" button</td>
+                                <td>Error message "Email already registered. Please use a different email" is displayed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Case 4 -->
+        <div class="test-case">
+            <div class="test-case-header">
+                <span>
+                    <span class="test-case-id">TC_REG_004</span> - Password Mismatch
+                </span>
+                <span class="priority-medium">Medium Priority</span>
+            </div>
+            <div class="test-case-body">
+                <div class="test-case-section">
+                    <span class="test-case-label">Objective:</span>
+                    <div>Verify that registration fails when password and confirm password do not match</div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Test Data:</span>
+                    <div>
+                        <ul>
+                            <li>Password: SecurePass123!</li>
+                            <li>Confirm Password: DifferentPass456@</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Test Steps:</span>
+                    <table class="test-steps">
+                        <thead>
+                            <tr>
+                                <th width="60">Step</th>
+                                <th>Action</th>
+                                <th>Expected Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Navigate to registration page</td>
+                                <td>Registration form is displayed</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Fill all fields with valid data except password confirmation</td>
+                                <td>All fields accept input</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Enter password "SecurePass123!"</td>
+                                <td>Password field accepts input</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Enter different password "DifferentPass456@" in confirm field</td>
+                                <td>Confirm password field accepts input</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Click "Register" button</td>
+                                <td>Error message "Passwords do not match" is displayed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Case 5 -->
+        <div class="test-case">
+            <div class="test-case-header">
+                <span>
+                    <span class="test-case-id">TC_REG_005</span> - Weak Password Validation
+                </span>
+                <span class="priority-medium">Medium Priority</span>
+            </div>
+            <div class="test-case-body">
+                <div class="test-case-section">
+                    <span class="test-case-label">Objective:</span>
+                    <div>Verify that weak passwords are rejected during registration</div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Test Data:</span>
+                    <div>
+                        <ul>
+                            <li>Weak Password: 123</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Test Steps:</span>
+                    <table class="test-steps">
+                        <thead>
+                            <tr>
+                                <th width="60">Step</th>
+                                <th>Action</th>
+                                <th>Expected Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Navigate to registration page</td>
+                                <td>Registration form is displayed</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Fill all fields with valid data except password</td>
+                                <td>All fields accept input</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Enter weak password "123"</td>
+                                <td>Password strength indicator shows "Weak"</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Click "Register" button</td>
+                                <td>Error message "Password must be at least 8 characters with uppercase, lowercase, number and special character" is displayed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Case 6 -->
+        <div class="test-case">
+            <div class="test-case-header">
+                <span>
+                    <span class="test-case-id">TC_REG_006</span> - Required Field Validation
+                </span>
+                <span class="priority-medium">Medium Priority</span>
+            </div>
+            <div class="test-case-body">
+                <div class="test-case-section">
+                    <span class="test-case-label">Objective:</span>
+                    <div>Verify that all required fields are validated on form submission</div>
+                </div>
+                
+                <div class="test-case-section">
+                    <span class="test-case-label">Test Steps:</span>
+                    <table class="test-steps">
+                        <thead>
+                            <tr>
+                                <th width="60">Step</th>
+                                <th>Action</th>
+                                <th>Expected Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Navigate to registration page</td>
+                                <td>Registration form is displayed</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Leave all fields empty</td>
+                                <td>Fields remain empty</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Click "Register" button</td>
+                                <td>Validation errors displayed for all required fields (First Name, Last Name, Email, Password)</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Fill only first name field</td>
+                                <td>First name field accepts input</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Click "Register" button</td>
+                                <td>Validation errors displayed for remaining required fields</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div style="margin-top: 3rem; padding: 2rem; background-color: #f8f9fa; border-radius: 8px;">
+            <h3 style="color: #2c5aa0; margin-bottom: 1rem;">Test Case Summary</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div style="text-align: center;">
+                    <strong>Total Test Cases:</strong><br>
+                    <span style="font-size: 1.5rem; color: #2c5aa0;">6</span>
+                </div>
+                <div style="text-align: center;">
+                    <strong>High Priority:</strong><br>
+                    <span style="font-size: 1.5rem; color: #dc3545;">3</span>
+                </div>
+                <div style="text-align: center;">
+                    <strong>Medium Priority:</strong><br>
+                    <span style="font-size: 1.5rem; color: #fd7e14;">3</span>
+                </div>
+                <div style="text-align: center;">
+                    <strong>Coverage Areas:</strong><br>
+                    <span style="font-size: 1.5rem; color: #198754;">5</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug Report Sample - Login Functionality</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .test-document {
+            max-width: 1000px;
+            margin: 100px auto 0;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .document-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #dc3545;
+        }
+        .document-title {
+            color: #dc3545;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .bug-card {
+            border: 1px solid #dc3545;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        .bug-header {
+            background-color: #dc3545;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .bug-id {
+            font-family: monospace;
+            background-color: rgba(255,255,255,0.2);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .bug-body {
+            padding: 1.5rem;
+        }
+        .bug-section {
+            margin-bottom: 1.5rem;
+        }
+        .bug-label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .severity-critical { 
+            background-color: #dc3545;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .severity-high { 
+            background-color: #fd7e14;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .severity-medium { 
+            background-color: #ffc107;
+            color: black;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .severity-low { 
+            background-color: #198754;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .priority-p1 { 
+            background-color: #6f42c1;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .priority-p2 { 
+            background-color: #0d6efd;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .status-open { 
+            background-color: #dc3545;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-label-small {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+        .info-value {
+            font-weight: bold;
+            color: #333;
+        }
+        .steps-list {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #dc3545;
+        }
+        .steps-list ol {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        .steps-list li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        .screenshot-section {
+            background-color: #e3f2fd;
+            padding: 1rem;
+            border-radius: 5px;
+            border: 1px solid #90caf9;
+            text-align: center;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #495057;
+        }
+        .environment-info {
+            background-color: #e9ecef;
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .impact-section {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #fd7e14;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-document">
+        <a href="../index.html" class="back-button">&larr; Back to Portfolio</a>
+        
+        <div class="document-header">
+            <h1 class="document-title">Bug Report</h1>
+            <h2>Critical Login Issue</h2>
+        </div>
+
+        <!-- Bug Report 1 -->
+        <div class="bug-card">
+            <div class="bug-header">
+                <span>
+                    <span class="bug-id">BUG-2024-001</span> Login fails with correct credentials
+                </span>
+                <span class="status-open">OPEN</span>
+            </div>
+            <div class="bug-body">
+                <!-- Bug Summary Info -->
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label-small">Reporter</span>
+                        <span class="info-value">Sarah Johnson (QA Engineer)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label-small">Date Reported</span>
+                        <span class="info-value">December 18, 2024</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label-small">Assigned To</span>
+                        <span class="info-value">Mike Davis (Backend Developer)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label-small">Component</span>
+                        <span class="info-value">Authentication Module</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label-small">Version</span>
+                        <span class="info-value">v2.1.3</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label-small">Browser</span>
+                        <span class="info-value">Chrome 119.0.6045.105</span>
+                    </div>
+                </div>
+
+                <!-- Priority and Severity -->
+                <div class="bug-section">
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <span class="severity-critical">Critical Severity</span>
+                        <span class="priority-p1">P1 Priority</span>
+                    </div>
+                </div>
+
+                <!-- Bug Summary -->
+                <div class="bug-section">
+                    <span class="bug-label">Summary:</span>
+                    <div>Users cannot log in to the application despite entering correct username and password. The login form submits but redirects back to the login page without any error message.</div>
+                </div>
+
+                <!-- Environment -->
+                <div class="bug-section">
+                    <span class="bug-label">Environment:</span>
+                    <div class="environment-info">
+                        <strong>Testing Environment:</strong> Staging<br>
+                        <strong>URL:</strong> https://staging.shopeasy.com<br>
+                        <strong>OS:</strong> Windows 11 Pro<br>
+                        <strong>Browser:</strong> Google Chrome 119.0.6045.105<br>
+                        <strong>Screen Resolution:</strong> 1920x1080<br>
+                        <strong>Network:</strong> High-speed broadband
+                    </div>
+                </div>
+
+                <!-- Steps to Reproduce -->
+                <div class="bug-section">
+                    <span class="bug-label">Steps to Reproduce:</span>
+                    <div class="steps-list">
+                        <ol>
+                            <li>Navigate to the application login page (https://staging.shopeasy.com/login)</li>
+                            <li>Enter valid username: "testuser@example.com"</li>
+                            <li>Enter valid password: "TestPass123!"</li>
+                            <li>Click the "Login" button</li>
+                            <li>Observe the page behavior</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Expected Result -->
+                <div class="bug-section">
+                    <span class="bug-label">Expected Result:</span>
+                    <div>User should be successfully authenticated and redirected to the dashboard page with a welcome message.</div>
+                </div>
+
+                <!-- Actual Result -->
+                <div class="bug-section">
+                    <span class="bug-label">Actual Result:</span>
+                    <div>
+                        <ul>
+                            <li>Page refreshes and returns to the login form</li>
+                            <li>No error message is displayed</li>
+                            <li>Username and password fields are cleared</li>
+                            <li>User remains unauthenticated</li>
+                            <li>Network tab shows 200 response but no redirect occurs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Impact Assessment -->
+                <div class="bug-section">
+                    <span class="bug-label">Impact Assessment:</span>
+                    <div class="impact-section">
+                        <strong>Business Impact:</strong> Critical - Users cannot access the application, leading to potential revenue loss and customer dissatisfaction.<br><br>
+                        <strong>Affected Users:</strong> All users attempting to log in<br>
+                        <strong>Workaround:</strong> None available<br>
+                        <strong>Customer Impact:</strong> High - Complete loss of functionality for registered users
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="bug-section">
+                    <span class="bug-label">Additional Information:</span>
+                    <div>
+                        <ul>
+                            <li><strong>Console Errors:</strong> No JavaScript errors observed in browser console</li>
+                            <li><strong>Network Analysis:</strong> POST request to /api/auth/login returns 200 status but response body is empty</li>
+                            <li><strong>Session:</strong> No session cookie is set after login attempt</li>
+                            <li><strong>Database:</strong> User credentials verified to exist and be correct in database</li>
+                            <li><strong>Recent Changes:</strong> Authentication middleware was updated in build v2.1.3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Test Data Used -->
+                <div class="bug-section">
+                    <span class="bug-label">Test Data Used:</span>
+                    <div class="environment-info">
+                        <strong>Username:</strong> testuser@example.com<br>
+                        <strong>Password:</strong> TestPass123!<br>
+                        <strong>User Role:</strong> Standard User<br>
+                        <strong>Account Status:</strong> Active<br>
+                        <strong>Last Login:</strong> December 15, 2024 (successful)
+                    </div>
+                </div>
+
+                <!-- Screenshots/Evidence -->
+                <div class="bug-section">
+                    <span class="bug-label">Screenshots/Evidence:</span>
+                    <div class="screenshot-section">
+                        <i class="fas fa-camera" style="font-size: 2rem; color: #2196F3; margin-bottom: 1rem;"></i><br>
+                        <strong>Screenshots Available:</strong><br>
+                        • Login page before submission<br>
+                        • Network tab showing API response<br>
+                        • Page state after login attempt<br>
+                        • Browser developer tools console<br><br>
+                        <em>Screenshots attached to bug tracking system</em>
+                    </div>
+                </div>
+
+                <!-- Reproducibility -->
+                <div class="bug-section">
+                    <span class="bug-label">Reproducibility:</span>
+                    <div>
+                        <strong>Frequency:</strong> Always (100%)<br>
+                        <strong>Multiple Users:</strong> Confirmed with 3 different test accounts<br>
+                        <strong>Different Browsers:</strong> Reproduced in Chrome, Firefox, and Safari<br>
+                        <strong>Different Devices:</strong> Reproduced on desktop and mobile devices
+                    </div>
+                </div>
+
+                <!-- Suggested Fix -->
+                <div class="bug-section">
+                    <span class="bug-label">Suggested Investigation Areas:</span>
+                    <div>
+                        <ul>
+                            <li>Review authentication middleware changes in v2.1.3</li>
+                            <li>Check session management configuration</li>
+                            <li>Verify JWT token generation and validation</li>
+                            <li>Examine database connection and query execution</li>
+                            <li>Test authentication API endpoint independently</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Related Issues -->
+                <div class="bug-section">
+                    <span class="bug-label">Related Issues:</span>
+                    <div>
+                        <strong>Possibly Related:</strong><br>
+                        • BUG-2024-002: Session timeout not working correctly<br>
+                        • BUG-2024-003: Password reset emails not being sent<br><br>
+                        <strong>Dependencies:</strong><br>
+                        • Authentication service (auth-service v1.2.1)<br>
+                        • Session management library (express-session v1.17.3)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bug Report 2 - Medium Severity Example -->
+        <div class="bug-card">
+            <div class="bug-header">
+                <span>
+                    <span class="bug-id">BUG-2024-002</span> Shopping cart count displays incorrect value
+                </span>
+                <span class="status-open">OPEN</span>
+            </div>
+            <div class="bug-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label-small">Reporter</span>
+                        <span class="info-value">Lisa Chen (QA Engineer)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label-small">Date Reported</span>
+                        <span class="info-value">December 17, 2024</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label-small">Assigned To</span>
+                        <span class="info-value">Alex Rodriguez (Frontend Developer)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label-small">Component</span>
+                        <span class="info-value">Shopping Cart</span>
+                    </div>
+                </div>
+
+                <div class="bug-section">
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <span class="severity-medium">Medium Severity</span>
+                        <span class="priority-p2">P2 Priority</span>
+                    </div>
+                </div>
+
+                <div class="bug-section">
+                    <span class="bug-label">Summary:</span>
+                    <div>The shopping cart icon in the header shows an incorrect item count when items are added or removed from the cart. The count sometimes lags behind the actual cart contents.</div>
+                </div>
+
+                <div class="bug-section">
+                    <span class="bug-label">Steps to Reproduce:</span>
+                    <div class="steps-list">
+                        <ol>
+                            <li>Log in to the application</li>
+                            <li>Navigate to any product page</li>
+                            <li>Add 3 items to the cart</li>
+                            <li>Observe cart count in header (should show 3)</li>
+                            <li>Remove 1 item from cart</li>
+                            <li>Check cart count again</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="bug-section">
+                    <span class="bug-label">Expected vs Actual Result:</span>
+                    <div>
+                        <strong>Expected:</strong> Cart count should update immediately to reflect accurate number of items<br>
+                        <strong>Actual:</strong> Cart count sometimes shows old value or takes 3-5 seconds to update
+                    </div>
+                </div>
+
+                <div class="impact-section">
+                    <strong>Impact:</strong> Medium - May confuse users about cart contents but doesn't prevent core functionality
+                </div>
+            </div>
+        </div>
+
+        <!-- Bug Statistics Summary -->
+        <div style="margin-top: 3rem; padding: 2rem; background-color: #f8f9fa; border-radius: 8px;">
+            <h3 style="color: #dc3545; margin-bottom: 1rem;">Bug Report Summary</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div style="text-align: center;">
+                    <strong>Total Bugs Reported:</strong><br>
+                    <span style="font-size: 1.5rem; color: #dc3545;">2</span>
+                </div>
+                <div style="text-align: center;">
+                    <strong>Critical:</strong><br>
+                    <span style="font-size: 1.5rem; color: #dc3545;">1</span>
+                </div>
+                <div style="text-align: center;">
+                    <strong>Medium:</strong><br>
+                    <span style="font-size: 1.5rem; color: #ffc107;">1</span>
+                </div>
+                <div style="text-align: center;">
+                    <strong>Open Status:</strong><br>
+                    <span style="font-size: 1.5rem; color: #198754;">2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
