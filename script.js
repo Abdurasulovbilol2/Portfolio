@@ -41,7 +41,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Animate elements on scroll
+// Animate elements on scroll with enhanced skills animation
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -50,7 +50,18 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            if (entry.target.classList.contains('skill-category')) {
+                // Add staggered animation delay for skill categories
+                const skillCategories = entry.target.parentElement.querySelectorAll('.skill-category');
+                skillCategories.forEach((category, index) => {
+                    category.style.setProperty('--delay', index);
+                    setTimeout(() => {
+                        category.classList.add('visible');
+                    }, index * 200);
+                });
+            } else {
+                entry.target.classList.add('visible');
+            }
         }
     });
 }, observerOptions);
@@ -59,8 +70,34 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', () => {
     const elements = document.querySelectorAll('.project-card, .skill-category, .artifact-card, .about-text, .about-stats');
     elements.forEach(el => {
-        el.classList.add('fade-in');
+        if (el.classList.contains('skill-category')) {
+            el.classList.add('skills-appear');
+        } else {
+            el.classList.add('fade-in');
+        }
         observer.observe(el);
+    });
+    
+    // Add skill hover effects
+    const skillItems = document.querySelectorAll('.skill-item');
+    skillItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateX(8px) scale(1.05)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateX(0) scale(1)';
+        });
+    });
+    
+    // Add click effect for skill items
+    skillItems.forEach(item => {
+        item.addEventListener('click', function() {
+            this.style.animation = 'pulse 0.6s ease-in-out';
+            setTimeout(() => {
+                this.style.animation = '';
+            }, 600);
+        });
     });
 });
 
