@@ -332,6 +332,68 @@ section {
     box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
 }
 
+.profile-card {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.profile-contact,
+.profile-role {
+    color: #555;
+    margin-bottom: 0.75rem;
+}
+
+.profile-contact a {
+    color: #2c5aa0;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.profile-contact a:hover {
+    text-decoration: underline;
+}
+
+.profile-role {
+    font-weight: 700;
+    color: #2c5aa0;
+    margin-bottom: 1.5rem;
+}
+
+.profile-block {
+    margin-top: 1.75rem;
+    border-top: 1px solid #e4e8ee;
+    padding-top: 1.25rem;
+}
+
+.profile-block h4 {
+    font-size: 1.1rem;
+    color: #1f3f73;
+    margin-bottom: 0.85rem;
+}
+
+.profile-entry {
+    margin-bottom: 1rem;
+}
+
+.entry-head {
+    color: #222;
+    margin-bottom: 0.25rem;
+}
+
+.entry-subhead {
+    color: #4b5768;
+    margin-bottom: 0.7rem;
+}
+
+.profile-card ul {
+    margin: 0 0 0.75rem 1.15rem;
+    color: #384559;
+}
+
+.profile-card li {
+    margin-bottom: 0.55rem;
+}
+
 .skill-items {
     display: grid;
     grid-template-columns: 1fr;
@@ -443,6 +505,15 @@ section {
     .skill-category {
         padding: 2rem;
         margin-bottom: 1rem;
+    }
+
+    .profile-card {
+        max-width: 100%;
+    }
+
+    .profile-contact {
+        font-size: 0.95rem;
+        line-height: 1.7;
     }
 }
 
