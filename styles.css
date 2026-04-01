@@ -353,6 +353,11 @@ section {
     text-decoration: underline;
 }
 
+.profile-contact a[href^="tel:"] {
+    white-space: nowrap;
+    display: inline-block;
+}
+
 .profile-role {
     font-weight: 700;
     color: #2c5aa0;
