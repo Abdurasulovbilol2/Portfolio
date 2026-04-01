@@ -565,6 +565,28 @@ section {
     margin-bottom: 1.5rem;
 }
 
+.project-highlights {
+    margin: 0 0 1.25rem 1.2rem;
+    color: #4b5768;
+}
+
+.project-highlights li {
+    margin-bottom: 0.6rem;
+}
+
+.project-runbook {
+    background-color: #f6f8fb;
+    border: 1px solid #e4e8ef;
+    border-radius: 8px;
+    padding: 0.9rem;
+    margin: 0 0 1.25rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: #28313f;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
 .project-tech {
     display: flex;
     flex-wrap: wrap;

@@ -234,18 +234,39 @@
                 <div class="project-card">
                     <div class="project-header">
                         <i class="fas fa-desktop project-icon"></i>
-                        <h3>E-Commerce UI Automation</h3>
+                        <h3>Playwright Automation Framework</h3>
                     </div>
                     <p class="project-description">
-                        Comprehensive UI automation framework for an e-commerce application using 
-                        Selenium WebDriver with Page Object Model pattern. Includes cross-browser 
-                        testing, data-driven testing, and detailed reporting.
+                        Flagship combines Playwright, TypeScript, data-driven testing, CI execution, and rich reporting into a single QA framework designed for realistic delivery pipelines instead of demo-only scripts.
                     </p>
+                    <ul class="project-highlights">
+                        <li><strong>Config loader:</strong> Environment variables select target URLs, retry behavior, headless mode, and worker settings.</li>
+                        <li><strong>Playwright runner:</strong> The runner orchestrates UI tests, API tests, sharding, retries, and artifact collection.</li>
+                        <li><strong>Execution layers:</strong> UI tests use page objects and test data; API tests route through a dedicated client layer.</li>
+                        <li><strong>Reporting and CI:</strong> HTML and Allure outputs are generated for local review and pipeline artifact publishing.</li>
+                    </ul>
+                    <p class="project-description"><strong>Runbook</strong></p>
+                    <pre class="project-runbook">Install
+npm install
+npx playwright install
+
+Run suites
+npm test
+npm run test:ui
+npm run test:api
+
+Open reports
+npm run report:html
+npm run report:allure:generate
+npm run report:allure:open
+
+Container run
+docker compose up --build</pre>
                     <div class="project-tech">
-                        <span class="tech-tag">Selenium</span>
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">TestNG</span>
-                        <span class="tech-tag">Maven</span>
+                        <span class="tech-tag">Playwright</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Allure</span>
+                        <span class="tech-tag">Docker</span>
                     </div>
                     <div class="project-links">
                         <a href="[GITHUB_LINK]" target="_blank" class="project-link">
