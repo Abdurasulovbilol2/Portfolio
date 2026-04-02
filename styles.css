@@ -540,6 +540,8 @@ section {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -611,6 +613,8 @@ section {
 .project-links {
     display: flex;
     gap: 1rem;
+    margin-top: auto;
+    flex-wrap: wrap;
 }
 
 .project-link {

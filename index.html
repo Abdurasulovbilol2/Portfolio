@@ -238,12 +238,29 @@ docker compose up --build</pre>
                     <p class="project-description">
                         The framework provides detailed logging and reporting to improve debugging and test analysis. It is integrated with CI/CD pipelines like GitHub Actions, allowing automated test execution on every code change, which helps maintain code quality and accelerate development cycles.
                     </p>
+                    <ul class="project-highlights">
+                        <li><strong>API coverage:</strong> The suite validates status codes, response payloads, headers, and negative scenarios across key service endpoints.</li>
+                        <li><strong>Reusable setup:</strong> Shared request specifications keep authentication, base configuration, and logging consistent between tests.</li>
+                        <li><strong>CI execution:</strong> Maven-based runs can be triggered locally or from Jenkins and GitHub Actions for regression coverage on every change.</li>
+                    </ul>
                     <div class="project-tech">
                         <span class="tech-tag">REST Assured</span>
                         <span class="tech-tag">Java</span>
                         <span class="tech-tag">JUnit</span>
                         <span class="tech-tag">Jenkins</span>
                     </div>
+                    <p class="project-description"><strong>Runbook</strong></p>
+                    <pre class="project-runbook">Install
+npm install
+npx playwright install
+
+Run tests
+npm test
+npm run test:auth
+npm run test:api
+
+Reports
+npm run report:html</pre>
                     <div class="project-links">
                         <a href="https://github.com/Abdurasulovbilol2/Api-test-suite" target="_blank" class="project-link">
                             <i class="fab fa-github"></i> View Code
