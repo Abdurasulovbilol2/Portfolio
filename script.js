@@ -316,17 +316,18 @@ if ("IntersectionObserver" in window) {
 }
 
 // Statistics counter animation
-function animateCounter(element, target, duration = 2000) {
+function animateCounter(element, target, duration = 2000, suffix = "") {
   let start = 0;
   const increment = target / (duration / 16);
+  const formattedSuffix = suffix ? ` ${suffix}` : "";
 
   function updateCounter() {
     start += increment;
     if (start < target) {
-      element.textContent = Math.floor(start) + "+";
+      element.textContent = Math.floor(start) + "+" + formattedSuffix;
       requestAnimationFrame(updateCounter);
     } else {
-      element.textContent = target + "+";
+      element.textContent = target + "+" + formattedSuffix;
     }
   }
 
@@ -340,9 +341,16 @@ const statsObserver = new IntersectionObserver(
       if (entry.isIntersecting) {
         const statNumbers = entry.target.querySelectorAll(".stat h3");
         statNumbers.forEach((stat) => {
-          const target = parseInt(stat.textContent.replace("+", ""));
+          const fullText = stat.textContent.trim();
+          const match = fullText.match(/^(\d+)\+?\s*(.*)$/);
+          if (!match) {
+            return;
+          }
+
+          const target = parseInt(match[1], 10);
+          const suffix = match[2].trim();
           if (!isNaN(target)) {
-            animateCounter(stat, target);
+            animateCounter(stat, target, 2000, suffix);
           }
         });
         statsObserver.unobserve(entry.target);
