@@ -344,12 +344,12 @@ section {
 
 .profile-contact,
 .profile-role {
-    color: #d5e2f9;
+    color: #ffffff;
     margin-bottom: 0.75rem;
 }
 
 .profile-contact a {
-    color: #2c5aa0;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
 }
@@ -365,7 +365,7 @@ section {
 
 .profile-role {
     font-weight: 700;
-    color: #2c5aa0;
+    color: #ffffff;
     margin-bottom: 1.5rem;
 }
 
@@ -377,7 +377,7 @@ section {
 
 .profile-block h4 {
     font-size: 1.1rem;
-    color: #f3f7ff;
+    color: #ffffff;
     margin-bottom: 0.85rem;
 }
 
@@ -386,18 +386,18 @@ section {
 }
 
 .entry-head {
-    color: #f3f7ff;
+    color: #ffffff;
     margin-bottom: 0.25rem;
 }
 
 .entry-subhead {
-    color: #d5e2f9;
+    color: #ffffff;
     margin-bottom: 0.7rem;
 }
 
 .profile-card ul {
     margin: 0 0 0.75rem 1.15rem;
-    color: #c5d4f0;
+    color: #ffffff;
 }
 
 .profile-card li {
