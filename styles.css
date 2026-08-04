@@ -8,8 +8,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: #e7eefc;
+    background-color: #08162f;
 }
 
 .container {
@@ -20,7 +20,7 @@ body {
 
 /* Navigation Styles */
 .navbar {
-    background-color: #fff;
+    background-color: #0a1d3f;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     top: 0;
@@ -41,7 +41,7 @@ body {
 .nav-logo a {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #2c5aa0;
+    color: #f3f7ff;
     text-decoration: none;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 .nav-link {
-    color: #333;
+    color: #dbe7ff;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -71,7 +71,7 @@ body {
 .bar {
     width: 25px;
     height: 3px;
-    background-color: #333;
+    background-color: #f3f7ff;
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -127,12 +127,12 @@ body {
 }
 
 .btn-primary {
-    background-color: #f1c40f;
-    color: #333;
+    background-color: #12376f;
+    color: #f3f7ff;
 }
 
 .btn-primary:hover {
-    background-color: #f39c12;
+    background-color: #1a4a92;
     transform: translateY(-2px);
 }
 
@@ -143,8 +143,8 @@ body {
 }
 
 .btn-secondary:hover {
-    background-color: white;
-    color: #333;
+    background-color: #12376f;
+    color: #f3f7ff;
     transform: translateY(-2px);
 }
 
@@ -169,7 +169,7 @@ body {
 }
 
 .social-link:hover {
-    background-color: white;
+    background-color: #12376f;
     color: #2c5aa0;
     transform: translateY(-3px);
 }
@@ -183,7 +183,7 @@ section {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #333;
+    color: #f3f7ff;
     position: relative;
 }
 
@@ -200,7 +200,7 @@ section {
 
 /* About Section */
 .about {
-    background-color: white;
+    background-color: #08162f;
 }
 
 .about-content {
@@ -214,7 +214,7 @@ section {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     line-height: 1.8;
-    color: #666;
+    color: #c5d4f0;
 }
 
 .about-stats {
@@ -227,7 +227,7 @@ section {
 .stat {
     text-align: center;
     padding: 1.5rem;
-    background-color: #f8f9fa;
+    background-color: #10254d;
     border-radius: 10px;
     border-left: 4px solid #2c5aa0;
 }
@@ -239,13 +239,13 @@ section {
 }
 
 .stat p {
-    color: #666;
+    color: #d7e3fb;
     font-weight: 500;
 }
 
 /* Skills Section */
 .skills {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #08162f 0%, #12376f 100%);
     color: white;
     position: relative;
     overflow: hidden;
@@ -282,13 +282,13 @@ section {
 }
 
 .skill-category {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(10, 29, 63, 0.92);
     backdrop-filter: blur(10px);
     padding: 2.5rem;
     border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(120, 154, 219, 0.28);
     position: relative;
     overflow: hidden;
 }
@@ -341,7 +341,7 @@ section {
 
 .profile-contact,
 .profile-role {
-    color: #555;
+    color: #d5e2f9;
     margin-bottom: 0.75rem;
 }
 
@@ -368,13 +368,13 @@ section {
 
 .profile-block {
     margin-top: 1.75rem;
-    border-top: 1px solid #e4e8ee;
+    border-top: 1px solid rgba(151, 178, 228, 0.25);
     padding-top: 1.25rem;
 }
 
 .profile-block h4 {
     font-size: 1.1rem;
-    color: #1f3f73;
+    color: #f3f7ff;
     margin-bottom: 0.85rem;
 }
 
@@ -383,18 +383,18 @@ section {
 }
 
 .entry-head {
-    color: #222;
+    color: #f3f7ff;
     margin-bottom: 0.25rem;
 }
 
 .entry-subhead {
-    color: #4b5768;
+    color: #d5e2f9;
     margin-bottom: 0.7rem;
 }
 
 .profile-card ul {
     margin: 0 0 0.75rem 1.15rem;
-    color: #384559;
+    color: #c5d4f0;
 }
 
 .profile-card li {
@@ -408,11 +408,11 @@ section {
 }
 
 .skill-item {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: linear-gradient(135deg, #0d2348 0%, #13305f 100%);
     padding: 1rem 1.5rem;
     border-radius: 12px;
     font-size: 0.95rem;
-    color: #333;
+    color: #e7eefc;
     transition: all 0.3s ease;
     border: 2px solid transparent;
     position: relative;
@@ -444,9 +444,9 @@ section {
 }
 
 .skill-item:nth-child(even):hover {
-    background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
-    color: #333;
-    border-color: #2c5aa0;
+    background: linear-gradient(135deg, #143468 0%, #1a4a92 100%);
+    color: #f3f7ff;
+    border-color: #8db3ff;
 }
 
 /* Frontend Development Category */
@@ -526,7 +526,7 @@ section {
 
 /* Projects Section */
 .projects {
-    background-color: white;
+    background-color: #08162f;
 }
 
 .projects-grid {
@@ -536,12 +536,12 @@ section {
 }
 
 .project-card {
-    background-color: white;
+    background-color: #0a1d3f;
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-    border: 1px solid #e9ecef;
+    border: 1px solid rgba(120, 154, 219, 0.2);
     display: flex;
     flex-direction: column;
 }
@@ -565,18 +565,18 @@ section {
 
 .project-header h3 {
     font-size: 1.5rem;
-    color: #333;
+    color: #f3f7ff;
 }
 
 .project-description {
-    color: #666;
+    color: #c5d4f0;
     line-height: 1.7;
     margin-bottom: 1.5rem;
 }
 
 .project-highlights {
     margin: 0 0 1.25rem 1.2rem;
-    color: #4b5768;
+    color: #d5e2f9;
 }
 
 .project-highlights li {
@@ -584,14 +584,14 @@ section {
 }
 
 .project-runbook {
-    background-color: #f6f8fb;
-    border: 1px solid #e4e8ef;
+    background-color: #10254d;
+    border: 1px solid rgba(120, 154, 219, 0.22);
     border-radius: 8px;
     padding: 0.9rem;
     margin: 0 0 1.25rem;
     white-space: pre-wrap;
     word-break: break-word;
-    color: #28313f;
+    color: #e7eefc;
     font-size: 0.88rem;
     line-height: 1.5;
 }
@@ -604,8 +604,8 @@ section {
 }
 
 .tech-tag {
-    background-color: #e3f2fd;
-    color: #1976d2;
+    background-color: #143468;
+    color: #dfeafe;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.8rem;
@@ -638,7 +638,7 @@ section {
 
 /* Test Artifacts Section */
 .test-artifacts {
-    background-color: #f8f9fa;
+    background-color: #08162f;
 }
 
 .artifacts-grid {
@@ -648,7 +648,7 @@ section {
 }
 
 .artifact-card {
-    background-color: white;
+    background-color: #0a1d3f;
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
@@ -672,12 +672,12 @@ section {
 
 .artifact-card h3 {
     font-size: 1.3rem;
-    color: #333;
+    color: #f3f7ff;
     margin-bottom: 1rem;
 }
 
 .artifact-card p {
-    color: #666;
+    color: #c5d4f0;
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
@@ -702,7 +702,7 @@ section {
 
 /* Contact Section */
 .contact {
-    background-color: white;
+    background-color: #08162f;
 }
 
 .contact-content {
@@ -714,7 +714,7 @@ section {
 .contact-info h3,
 .contact-form h3 {
     font-size: 1.5rem;
-    color: #333;
+    color: #f3f7ff;
     margin-bottom: 2rem;
 }
 
@@ -722,7 +722,7 @@ section {
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;
-    color: #666;
+    color: #d5e2f9;
 }
 
 .contact-item i {
@@ -750,10 +750,17 @@ section {
 .contact-form input,
 .contact-form textarea {
     padding: 1rem;
-    border: 2px solid #e9ecef;
+    border: 2px solid #24487e;
     border-radius: 5px;
     font-size: 1rem;
+    background-color: #0a1d3f;
+    color: #f3f7ff;
     transition: border-color 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #93abd8;
 }
 
 .contact-form input:focus,
@@ -815,9 +822,9 @@ section {
 
 .email-fallback {
     padding: 1rem;
-    background-color: #f8f9fa;
+    background-color: #0a1d3f;
     border-radius: 8px;
-    border: 1px solid #e9ecef;
+    border: 1px solid rgba(120, 154, 219, 0.2);
 }
 
 .email-fallback .btn {
@@ -841,7 +848,7 @@ section {
 
 /* Footer */
 .footer {
-    background-color: #333;
+    background-color: #061126;
     color: white;
     padding: 2rem 0;
 }
@@ -874,7 +881,7 @@ section {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: white;
+        background-color: #0a1d3f;
         width: 100%;
         text-align: center;
         transition: 0.3s;
