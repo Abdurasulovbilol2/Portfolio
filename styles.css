@@ -41,7 +41,7 @@ body {
 .nav-logo a {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #f3f7ff;
+    color: #12376f;
     text-decoration: none;
 }
 
@@ -52,14 +52,14 @@ body {
 }
 
 .nav-link {
-    color: #dbe7ff;
+    color: #12376f;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #2c5aa0;
+    color: #0b1f4d;
 }
 
 .nav-toggle {
@@ -335,6 +335,9 @@ section {
 }
 
 .profile-card {
+    background: linear-gradient(135deg, #0f2647 0%, #114d68 100%);
+    border: 1px solid rgba(108, 220, 255, 0.25);
+    box-shadow: 0 20px 45px rgba(3, 16, 38, 0.35);
     max-width: 980px;
     margin: 0 auto;
 }
